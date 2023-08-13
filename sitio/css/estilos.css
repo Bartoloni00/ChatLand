@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+main{
+    max-width: 1366px;
+    margin: auto;
+    background-color: #202B3E;
+}
+.login{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
+    background-image: url('../assets/whatsapp-wallpaper-header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: contrast(50%);
+}
+.login>article{
+    margin: auto;
+    width: 100%;
+    height: 90vh;
+    max-width: 500px;
+    border: 1px solid #03030333;
+     background-color: #03030355;
+     backdrop-filter: blur(4px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0;
+    color: #f6f6f6;
+}
+.login form{
+    width: 80%;
+}
+.login-titulos{
+    display: flex;
+    width: 80%;
+    margin-bottom: 1em;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #aeaeae;
+}
+.login-titulos>h1, .login-titulos>a{
+    color: #f6f6f6;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.login-titulos>a{
+    color: #f6f6f644;
+}
+.login .input-container{
+    margin: auto;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.input-container label{
+    padding: .6em 0 .2em 0;
+    font-size: .8em;
+}
+.input-container input{
+    width: 100%;
+    padding: .5em;
+    background-color: #f6f6f600;
+    border: none; 
+    transition: all .2s;
+}
+.input-container input::placeholder{
+    color: #202B3E;
+}
+.input-container input:focus{
+    outline: none;
+    border: none;
+    background-color: #f6f6f6;
+    border-radius: 4px;
+}
+.input-container::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    border-bottom: 2px solid #f6f6f6;
+}
+.input-container div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-container #ojo{
+    cursor: pointer;
+    padding: .5em .6em;
+    transition: all .2s;
+}
+.input-container #ojo:hover{
+    background: #f6f6f6;
+    color: #202B3E;
+    border-radius: 4px;
+}
+.login form>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.login button{
+    background: none;
+    border: 2px solid #f6f6f6;
+    border-radius: 4px;
+    padding: .2em 1em;
+    cursor: pointer;
+    font-weight: bolder;
+    color: #f6f6f6;
+    transition: all .2s;
+}
+.login button:hover{
+    background-color: #f6f6f6;
+    color: #202B3E;
+}
+.login p{
+    line-height: 50px;
+    font-size:  1em;
+}
+.login p>a{
+    color: #f6f6f6;
+    font-weight: bolder;
+}
+fieldset{
+    border: none;
+    margin-bottom: 1.5em;
+}
+legend{
+    visibility: hidden;
+}
+/*---------------------------------------Fin de login y registro----------------------------------------------*/
+.msg-exito,.msg-error{
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background-color: #00ff0066;
+    backdrop-filter: blur(4px);
+    z-index: 40;
+    text-align: center;
+    line-height: 30px;
+    text-transform: capitalize;
+}
+.msg-error{
+    background-color: #ff000066;
+}
+/*---------------------------------------Chats section----------------------------------------------*/
+#chats{
+    display: flex;
+    height: 100vh;
+}
+#chats>.menu{
+    background-color: #ff0000;
+    width: 7vw;
+}
+#chats>.menu>nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#chats>.menu>nav>ul{
+    width: 90%;
+}
+#chats>.menu>nav>ul>li>a{
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#chats>.chats{
+    background-color: #00ff00;
+    width: 30vw;
+}
+#chats>.buscar-contactos{
+    width: 100%;
+}
