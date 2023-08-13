@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/DB.php';
-require_once __DIR__ . '/Modelo.php';
-require_once __DIR__ . '/Usuarios.php';
+require_once __DIR__ . '/../../bootstrap/autoload.php';
 
 class Usuarios extends Modelo{
     protected string $tabla = "usuarios";

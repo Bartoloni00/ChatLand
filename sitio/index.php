@@ -1,8 +1,6 @@
 <?php
     session_start();
-    require_once __DIR__.'/clases/db/DB.php';
-    require_once __DIR__ . '/clases/auth/Auth.php';
-    require_once __DIR__ . '/clases/modelos/Usuarios.php';
+    require_once __DIR__.'/bootstrap/autoload.php';
 
     $rutas = [
         'error' => [

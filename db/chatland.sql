@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2023 a las 00:41:50
+-- Tiempo de generación: 13-08-2023 a las 16:29:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,8 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chats` (
   `id_chats` int(11) NOT NULL,
-  `ultima_actividad` date NOT NULL
+  `ultima_actividad` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `chats`
+--
+
+INSERT INTO `chats` (`id_chats`, `ultima_actividad`) VALUES
+(1, '2023-08-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,6 +91,15 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuarios`, `username`, `password`, `email`, `ultima_conexion`) VALUES
+(1, NULL, '$2y$10$wX41n5eAszwLPEJpcM7lFe2cXu4s7S.HNSp2znUZkajpEVAmofxGS', 'abraham@prueba.com', '2023-08-12 18:31:27'),
+(2, '$abraham', '$2y$10$xJQWQ5bz1AtFIUp0v03cnud1y72hfpcxRH4tbdIKI1TOAeSWdg2.S', 'usuario@prueba.com', '2023-08-12 19:38:36'),
+(3, '$juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -130,7 +146,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
@@ -148,7 +164,7 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

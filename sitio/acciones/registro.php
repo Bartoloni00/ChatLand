@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../clases/db/DB.php';
-require_once __DIR__ . '/../clases/modelos/Usuarios.php';
+require_once __DIR__ . '/../bootstrap/autoload.php';
 
 $email = $_POST['email'];
 $username = trim($_POST['username']);
@@ -40,21 +39,19 @@ if(count($errores) > 0){
     }
 
     try {
-        date_default_timezone_set('America/Argentina/Buenos_Aires');
-        $fechaRecuperada = new DateTime();
-        $fechaFormateada = $fechaRecuperada->format('Y-m-d H:i:s.u');
+        $fecha = (new Chat)->obtenerFecha();
 
         $nombreDeUsuario = '$'.$username;
         (new Usuarios)->crear([
             'email'=>$email,
             'username'=>$nombreDeUsuario,
             'password'=>password_hash($password, PASSWORD_DEFAULT),
-            'ultima_conexion'=>$fechaFormateada
+            'ultima_conexion'=>$fecha
         ]);
         $_SESSION['mensajeExito'] = 'Has creado un nuevo usuario';
         header('Location: ../index.php?s=login');
         exit;
-    } catch (\Throwable $th) {
+    } catch (\Exception $error) {
         $_SESSION['mensajeError'] = 'Oh no, Ocurrio un error inesperado en el registro del usuario';
         header('Location: ../index.php?s=crear-cuenta');
         exit;

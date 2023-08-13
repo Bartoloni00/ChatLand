@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/DB.php';
+require_once __DIR__ . '/../../bootstrap/autoload.php';
 
 /**
  * Clase base para todos los modelos del sistema.

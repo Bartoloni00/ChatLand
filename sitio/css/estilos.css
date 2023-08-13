@@ -191,3 +191,6 @@ legend{
 #chats>.buscar-contactos{
     width: 100%;
 }
+#chats>.buscar-contactos>.usuario{
+    border: 1px solid black;
+}
