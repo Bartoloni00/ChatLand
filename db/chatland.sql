@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-08-2023 a las 16:29:40
+-- Tiempo de generación: 13-08-2023 a las 20:55:44
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -37,7 +37,9 @@ CREATE TABLE `chats` (
 --
 
 INSERT INTO `chats` (`id_chats`, `ultima_actividad`) VALUES
-(1, '2023-08-13 00:00:00');
+(9, '2023-08-13 15:03:38'),
+(10, '2023-08-13 15:08:52'),
+(11, '2023-08-13 15:08:54');
 
 -- --------------------------------------------------------
 
@@ -49,6 +51,18 @@ CREATE TABLE `chats_de_usuarios` (
   `fk_chats` int(11) NOT NULL,
   `fk_usuarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `chats_de_usuarios`
+--
+
+INSERT INTO `chats_de_usuarios` (`fk_chats`, `fk_usuarios`) VALUES
+(9, 2),
+(9, 3),
+(10, 3),
+(10, 4),
+(11, 2),
+(11, 4);
 
 -- --------------------------------------------------------
 
@@ -95,9 +109,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `username`, `password`, `email`, `ultima_conexion`) VALUES
-(1, NULL, '$2y$10$wX41n5eAszwLPEJpcM7lFe2cXu4s7S.HNSp2znUZkajpEVAmofxGS', 'abraham@prueba.com', '2023-08-12 18:31:27'),
 (2, '$abraham', '$2y$10$xJQWQ5bz1AtFIUp0v03cnud1y72hfpcxRH4tbdIKI1TOAeSWdg2.S', 'usuario@prueba.com', '2023-08-12 19:38:36'),
-(3, '$juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45');
+(3, '$juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45'),
+(4, '$pepe grillo', '$2y$10$cJN8jizKVfpsR7N8LXwxveJufwk0H93ovsQBmbjmJpnBQbX.mehau', 'abraham@prueba.com', '2023-08-13 15:08:26');
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +160,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
@@ -164,7 +178,7 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

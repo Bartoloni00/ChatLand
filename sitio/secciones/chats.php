@@ -1,5 +1,8 @@
 <?php
     $usuarios = (new Usuarios)->todo();
+    $idUsuarioAutenticado = (new Auth)->getUsuarios()->getIdUsuarios();
+    $claseChats = (new Chat);
+    $chats = $claseChats->traerChatsDelUsuario($idUsuarioAutenticado);
 ?>
 <section id="chats">
     <article class="menu">
@@ -18,7 +21,22 @@
         </nav>
     </article>
     <article class="chats">
-        
+        <ul>
+            <?php foreach ($chats as $chat):?>
+                <li class="chat">
+                    <a href="http://localhost/chatLand/sitio/index.php?s=chat&id=<?=$chat->getIdChats();?>">
+                        <?php 
+                            $usuariosDelChat = $claseChats->traerUsuariosDelChat($chat->getIdChats());
+                            foreach ($usuariosDelChat as $usuario) {
+                                if ($usuario !== $idUsuarioAutenticado) {
+                                    echo 'Tu conversacion con '. (new Usuarios)->porId($usuario)->getUsername();
+                                }
+                            }
+                        ?>
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ul>
     </article>
     <article class="buscar-contactos">
         <form action="" method="get">

@@ -188,6 +188,11 @@ legend{
     background-color: #00ff00;
     width: 30vw;
 }
+#chats>.chats .chat{
+    padding: 1em;
+    border: 1px solid black;
+    height: 50px;
+}
 #chats>.buscar-contactos{
     width: 100%;
 }
