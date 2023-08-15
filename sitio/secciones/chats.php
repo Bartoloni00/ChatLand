@@ -1,4 +1,28 @@
 <?php
+$rutas = [
+    'error' => [
+     'title' => 'Página no encontrada',
+    ],
+     'chat' => [
+      'title' => 'Chat',
+      'requiereAutenticacion' => true
+     ],
+     'buscador' => [
+        'title' => 'Buscador',
+        'requiereAutenticacion' => true
+       ]
+    ];
+
+$vistaInterna = $_GET['ss'] ?? 'buscador';
+
+if(!isset($rutas[$vistaInterna])) {
+// Esta vistaInterna no "existe", así que mostramos una pantalla de error.
+$vistaInterna = 'error';
+}
+
+$rutaOpciones = $rutas[$vistaInterna];
+
+
     $usuarios = (new Usuarios)->todo();
     $idUsuarioAutenticado = (new Auth)->getUsuarios()->getIdUsuarios();
     $claseChats = (new Chat);
@@ -17,6 +41,9 @@
                 <li>
                     <a href="acciones/cerrar-session.php">cerrar</a>
                 </li>
+                <li>
+                    <a href="index.php?s=chats&ss=buscador">Buscador</a>
+                </li>
             </ul>
         </nav>
     </article>
@@ -24,7 +51,7 @@
         <ul>
             <?php foreach ($chats as $chat):?>
                 <li class="chat">
-                    <a href="http://localhost/chatLand/sitio/index.php?s=chat&id=<?=$chat->getIdChats();?>">
+                    <a href="http://localhost/chatLand/sitio/index.php?s=chats&ss=chat&id=<?=$chat->getIdChats();?>">
                         <?php 
                             $usuariosDelChat = $claseChats->traerUsuariosDelChat($chat->getIdChats());
                             foreach ($usuariosDelChat as $usuario) {
@@ -38,21 +65,9 @@
             <?php endforeach;?>
         </ul>
     </article>
-    <article class="buscar-contactos">
-        <form action="" method="get">
-            <label for="buscador">Buscador</label>
-            <input type="text" name="buscador" >
-        </form>
-        <?php foreach ($usuarios as $usuario):?>
-            <?php if ((new Auth)->getUsuarios()->getEmail() !== $usuario->getEmail()):?>
-                <div class="usuario">
-                    <?= $usuario->getEmail()?>
-                    <form action="acciones/crear-chat.php" method="post">
-                        <input type="hidden" name="id_usuario1" value="<?=$usuario->getIdUsuarios()?>">
-                        <button type="submit">Crear chat</button>
-                    </form>
-                </div>
-            <?php endif;?>
-        <?php endforeach;?>
+    <article class="principal-article">
+        <?php
+        require_once __DIR__ . '/' . $vistaInterna . '.php';
+        ?>
     </article>
 </section>

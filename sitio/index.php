@@ -72,9 +72,6 @@
         unset($_SESSION['mensajeError']);
         endif;
         ?>
-        <?php
-        require_once __DIR__ . '/secciones/' . $vista . '.php';
-        ?>
     <main>
         <?php
         require_once __DIR__ . '/secciones/' . $vista . '.php';

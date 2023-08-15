@@ -47,4 +47,13 @@ class Modelo{
         return $instancia;
     }
     
+        /**
+     * Obtiene la fecha y hora actual de Argentina.
+     *
+     * @return string La fecha y hora formateada.
+     */
+    public function obtenerFecha(): string {
+        $fechaRecuperada = new DateTime('now', new DateTimeZone('America/Argentina/Buenos_Aires'));
+        return $fechaRecuperada->format('Y-m-d H:i:s.u');
+    }
 }

@@ -31,6 +31,12 @@ class Usuarios extends Modelo{
         return $usuario;
     }
 
+    /**
+     * Trae a un usuario dependiendo de su username.
+     *
+     * @param string $username Username del usuario que se desea traer.
+     * @return Usuarios|null Una instancia de la clase actual o null si no se encuentra el elemento.
+     */
     public function porUsername(string $username): ?Usuarios
     {
         $db = DB::getConexion();
@@ -58,10 +64,10 @@ class Usuarios extends Modelo{
                 VALUES (:email, :password , :username , :ultima_conexion)";
         $stmt = $db->prepare($query);
         $stmt->execute([
-            'email'     => $data['email'],
-            'password'  => $data['password'],
-            'username'  => $data['username'],
-            'ultima_conexion'    => $data['ultima_conexion'],
+            'email'          => $data['email'],
+            'password'       => $data['password'],
+            'username'       => $data['username'],
+            'ultima_conexion'=> $data['ultima_conexion'],
         ]);
     }
 

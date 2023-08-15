@@ -43,9 +43,9 @@ if(count($errores) > 0){
 
         $nombreDeUsuario = '$'.$username;
         (new Usuarios)->crear([
-            'email'=>$email,
-            'username'=>$nombreDeUsuario,
-            'password'=>password_hash($password, PASSWORD_DEFAULT),
+            'email'          =>$email,
+            'username'       =>$nombreDeUsuario,
+            'password'       =>password_hash($password, PASSWORD_DEFAULT),
             'ultima_conexion'=>$fecha
         ]);
         $_SESSION['mensajeExito'] = 'Has creado un nuevo usuario';

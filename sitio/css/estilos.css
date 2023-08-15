@@ -193,9 +193,10 @@ legend{
     border: 1px solid black;
     height: 50px;
 }
-#chats>.buscar-contactos{
+#chats>.principal-article{
     width: 100%;
+    background-color: #fff;
 }
-#chats>.buscar-contactos>.usuario{
+#chats>.principal-article>.usuario{
     border: 1px solid black;
 }

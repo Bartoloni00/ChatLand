@@ -72,15 +72,11 @@ class Chat extends Modelo {
     }
 
     /**
-     * Obtiene la fecha y hora actual de Argentina.
+     * Trae los chats en los que está involucrado un usuario.
      *
-     * @return string La fecha y hora formateada.
+     * @param int $usuario_id El ID del usuario.
+     * @return array Array de objetos Chat en los que está el usuario.
      */
-    public function obtenerFecha(): string {
-        $fechaRecuperada = new DateTime('now', new DateTimeZone('America/Argentina/Buenos_Aires'));
-        return $fechaRecuperada->format('Y-m-d H:i:s.u');
-    }
-
     public function traerChatsDelUsuario($usuario_id) 
     {
         $db = DB::getConexion();
@@ -95,7 +91,13 @@ class Chat extends Modelo {
         return $stmt->fetchAll();
     }
 
-    public function traerUsuariosDelChat($chat_id) 
+    /**
+     * Trae los IDs de usuarios involucrados en un chat.
+     *
+     * @param int $chat_id El ID del chat.
+     * @return array Array de IDs de usuarios en el chat.
+     */
+    public function traerUsuariosDelChat($chat_id):array
     {
         $db = DB::getConexion();
         $query = "SELECT * FROM `chats_de_usuarios` WHERE fk_chats = :fk_chats;";
@@ -105,6 +107,13 @@ class Chat extends Modelo {
         return $stmt->fetchAll(PDO::FETCH_COLUMN, 1);//traigo un array con los datos de la segunda columna (fk_usuarios)
     }
 
+    /**
+     * Verifica si un usuario tiene un chat con otro usuario.
+     *
+     * @param int $id_usuarioCreador El ID del usuario creador del chat.
+     * @param int $id_usuario1 El ID del primer usuario.
+     * @return bool Verdadero si tienen un chat, falso si no.
+     */
     public function usuarioTieneChatCon($id_usuarioCreador,$id_usuario1): bool
     {
         $chats = $this->traerChatsDelUsuario($id_usuarioCreador);
