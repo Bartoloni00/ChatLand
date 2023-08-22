@@ -22,21 +22,24 @@
         exit;
     }
 ?>
-<header>
-    <?=$chatCon?>
+<header class="buscador">
+    <span>
+        <?=$chatCon?>
+    </span>
 </header>
+
 <div class="mensajes">
 <?php
     $mensajes = (new Mensaje)->traerMensajesDeUnChat($id);
 ?>
 <?php foreach ($mensajes as $mensaje):?>
-    <div class="mensaje">
+    <div class="mensaje <?= $mensaje->getFkUsuarios() === $idUsuarioAutenticado? 'mensajePropio': 'mensajeDeOtro';?>">
         <p><?=$mensaje->getContenido();?></p>
     </div>
 <?php endforeach;?>
 
 </div>
-<footer>
+<footer class="chat-footer">
     <form action="acciones/enviar-mensaje.php" method="post">
         <input type="hidden" name="chat" value="<?=$id?>">
         <label for="mensaje">Mensaje</label>

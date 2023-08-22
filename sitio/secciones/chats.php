@@ -29,25 +29,20 @@ $rutaOpciones = $rutas[$vistaInterna];
     $chats = $claseChats->traerChatsDelUsuario($idUsuarioAutenticado);
 ?>
 <section id="chats">
-    <article class="menu">
-        <nav>
+    <article class="chats">
+    <nav class="menu">
             <ul>
                 <li>
                     <a href="index.php?s=profile">perfil</a>
                 </li>
                 <li>
-                    <a href="#">contactos</a>
+                    <a href="index.php?s=chats&ss=buscador">Buscador</a>
                 </li>
                 <li>
                     <a href="acciones/cerrar-session.php">cerrar</a>
                 </li>
-                <li>
-                    <a href="index.php?s=chats&ss=buscador">Buscador</a>
-                </li>
             </ul>
         </nav>
-    </article>
-    <article class="chats">
         <ul>
             <?php foreach ($chats as $chat):?>
                 <li class="chat">
