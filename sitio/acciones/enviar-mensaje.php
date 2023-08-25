@@ -2,12 +2,20 @@
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
 
+$autenticado = (new Auth);
+if (!$autenticado->estaAutenticado()) {
+    $_SESSION['mensajeError'] = 'No puedes enviar un mensaje sin iniciar sesion';
+    header('Location: ../index.php?s=login');
+    exit;
+}
+
+
 $id_chat = $_POST['chat'];
 $contenido = $_POST['mensaje'];
 
 
 try {
-    $id_usuario = (new Auth)->getUsuarios()->getIdUsuarios();
+    $id_usuario = $autenticado->getUsuarios()->getIdUsuarios();
     $tiempo_de_envio = (new Modelo)->obtenerFecha();
     (new Mensaje)->crearMensaje([
             'contenido'=>$contenido,

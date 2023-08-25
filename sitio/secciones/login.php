@@ -20,7 +20,7 @@
                 </div>
             </fieldset>
             <div>
-                <button type="submit" class="btn-contacto">Ingresar</button>
+                <button type="submit">Ingresar</button>
                 <p>¿No tienes cuenta? ¡<a href="index.php?s=registro">Registrate</a>!</p>
             </div>
         </form>

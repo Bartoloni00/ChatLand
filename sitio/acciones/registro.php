@@ -34,7 +34,6 @@ if(count($errores) > 0){
     $_SESSION['errores'] = $errores;
     $_SESSION['oldData'] = $_POST;
     header('Location: ../index.php?s=crear-cuenta');
-    var_dump($errores);
     exit;
     }
 

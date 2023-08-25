@@ -35,6 +35,10 @@
 <?php foreach ($mensajes as $mensaje):?>
     <div class="mensaje <?= $mensaje->getFkUsuarios() === $idUsuarioAutenticado? 'mensajePropio': 'mensajeDeOtro';?>">
         <p><?=$mensaje->getContenido();?></p>
+        <?php 
+            $fecha = $mensaje->getTiempoDeEnvio();
+        ?>
+        <span><?=date("H:i", strtotime($fecha))?></span><!--extraigo la hora y el minuto de la fecha de envio-->
     </div>
 <?php endforeach;?>
 

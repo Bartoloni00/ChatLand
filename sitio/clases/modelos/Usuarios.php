@@ -83,6 +83,26 @@ class Usuarios extends Modelo{
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);
     }
+    /**
+     * Edita un usuario de la tabla usuarios
+     * 
+     * @param int $id Clave primaria del usuario a editar
+     * @param array $data el email y username que queremos actualizar
+     */
+    public function editar(int $id, array $data): void
+    {
+        $db = DB::getConexion();
+        $query = "UPDATE usuarios 
+                  SET email = :email,
+                      username = :username
+                  WHERE id_usuarios = :id_usuarios";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'id_usuarios' => $id
+        ]);
+    }
 
     public function getIdUsuarios(): int {
         return $this->id_usuarios;

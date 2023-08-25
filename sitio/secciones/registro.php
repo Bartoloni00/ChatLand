@@ -24,7 +24,7 @@
                 </div>
             </fieldset>
             <div>
-                <button type="submit" class="btn-contacto">Registrarse</button>
+                <button type="submit">Registrarse</button>
             </div>
         </form>
     </article>
