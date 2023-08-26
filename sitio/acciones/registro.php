@@ -40,7 +40,7 @@ if(count($errores) > 0){
     try {
         $fecha = (new Chat)->obtenerFecha();
 
-        $nombreDeUsuario = '$'.$username;
+        $nombreDeUsuario = '@'.$username;
         (new Usuarios)->crear([
             'email'          =>$email,
             'username'       =>$nombreDeUsuario,

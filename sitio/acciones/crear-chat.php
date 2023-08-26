@@ -26,11 +26,10 @@ try {
 
         $usuario1 = $usuario1Data->getUsername() ?? $usuario1Data->getEmail();
         $usuario2 = $usuario2Data->getUsername() ?? $usuario2Data->getEmail();
+        $_SESSION['mensajeExito'] = 'se ha creado una conversacion entre '. $usuario1 . ' y ' . $usuario2;
+        header('Location: ../index.php?s=chats');
+        exit;
     }
-
-    $_SESSION['mensajeExito'] = 'se ha creado una conversacion entre '. $usuario1 . ' y ' . $usuario2;
-    header('Location: ../index.php?s=chats');
-    exit;
 } catch (\Exception $error) {
      $_SESSION['mensajeError'] = 'Ocurrio un error inesperado intente en unos minutos'. $error;
     header('Location: ../index.php?s=chats');

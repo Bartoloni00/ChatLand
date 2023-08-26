@@ -114,15 +114,15 @@ class Chat extends Modelo {
      * @param int $id_usuario1 El ID del primer usuario.
      * @return bool Verdadero si tienen un chat, falso si no.
      */
-    public function usuarioTieneChatCon($id_usuarioCreador,$id_usuario1): bool
+    public function usuarioTieneChatCon(int $id_usuarioCreador,int $id_usuario1): bool
     {
         $chats = $this->traerChatsDelUsuario($id_usuarioCreador);
         foreach ($chats as $chat) {
             $usuariosDelChat = $this->traerUsuariosDelChat($chat->getIdChats());
-            foreach ($usuariosDelChat as $usuario) {
-                if ($usuario === $id_usuario1) {
-                    return true;
-                }
+            if ($usuariosDelChat[0] == $id_usuario1){
+                return true;
+            }else if($usuariosDelChat[1] == $id_usuario1){
+                return true;
             }
         }
         return false;
