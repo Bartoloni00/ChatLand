@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
+use Intervention\Image\ImageManagerStatic as Image;
 
 $autenticado = (new Auth);
 if (!$autenticado->estaAutenticado()) {
@@ -47,6 +48,17 @@ if(count($errores) > 0){
     // exit;
     }
 
+    if (!empty($imagen['tmp_name'])) {
+        $nombreImagen = date('YmdHis').'_'.$imagen['name'];
+        $imagenEditada = Image::make($imagen['tmp_name']);//abro la imagen para luego editarla
+        $imagenEditada->fit(200,200);//recorto y redimenciono la imagen
+        $imagenEditada->save(__DIR__.'/../assets/users/'.$nombreImagen);//guardo la imagen
+        $imagen = $nombreImagen;//asigno el nombre de la imagen para que sea guardado en la BD
+        $imagen = $nombreImagen;
+    }else{
+        $imagen = null;
+    }
+
 try { 
     $idUsuarioAutenticado = $autenticado->getUsuarios()->getIdUsuarios();
     try {
@@ -59,13 +71,25 @@ try {
         header('Location: ../index.php?s=profile');
         exit;
     }
-    // try {
-    //     (new Fotos)->agregarFoto($img, $idUsuarioAutenticado);
-    // } catch (Exception $error) {
-    //     $_SESSION['mensajeError'] = 'Ocurrio al subir la imagen';
-    //     header('Location: ../index.php?s=profile');
-    //     exit;
-    // }
+    try {
+        $fotoClass = (new Fotos);
+        if ($imagen !== null) {
+            if($fotoClass->usuarioTieneFoto($idUsuarioAutenticado)){
+                unlink(__DIR__.'/../assets/users/'.$fotoClass->traerPorUsuario($idUsuarioAutenticado)->getNombre());
+                $fotoClass->eliminarFoto($idUsuarioAutenticado);
+                echo 'se elimino la imagen';
+            }
+            $fotoClass->agregarFoto([
+                'nombre' => $imagen, 
+                'fk_usuario' => $idUsuarioAutenticado
+            ]);
+        }
+    } catch (Exception $error) {
+        echo 'error: <br>'.$error;
+        $_SESSION['mensajeError'] = 'Ocurrio un error al subir la imagen';
+        header('Location: ../index.php?s=profile');
+        exit;
+    }
     $_SESSION['mensajeExito'] = 'Los datos fueron actualizados correctamente';
         header('Location: ../index.php?s=profile');
         exit;

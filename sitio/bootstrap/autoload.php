@@ -1,6 +1,6 @@
 <?php
 //Autoload de Compouser:
-// require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 //Autoload de ChatLand
 spl_autoload_register(function($nombreDeLaClase){
     $nombreDeLaClase = str_replace('\\', '/', $nombreDeLaClase); // Reemplazar barras invertidas por barras diagonales

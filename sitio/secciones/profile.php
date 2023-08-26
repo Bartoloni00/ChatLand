@@ -6,7 +6,11 @@ $usuario = (new Auth)->getUsuarios();
 <form action="acciones/editar-perfil.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Datos del usuario</legend>
-        <img src="./assets/users/default.png" alt="error">
+        <?php
+            $foto = (new Fotos)->traerPorUsuario($usuario->getIdUsuarios());
+            $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
+            ?>
+       <img src="./assets/users/<?= $nombreFoto ?>" alt="Foto de perfil del usuario <?= $usuario->getUsername() ?>">
         <div>
             <label for="userImg">Foto de perfil</label>
             <input type="file" name="userImg" id="userImg" accept="image/*">

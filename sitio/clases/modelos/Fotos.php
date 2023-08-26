@@ -9,16 +9,56 @@ class Fotos extends Modelo{
     private string $nombre;
     private int $fk_usuario;
 
-    public function agregarFoto(string $nombre, int $fk_usuario): void
+    public function agregarFoto(array $data): void
     {
         $db = DB::getConexion();
         $query = "INSERT INTO fotos (nombre, fk_usuario)
-            VALUES (:nombre, :fk_usuarios)";
+            VALUES (:nombre, :fk_usuario)";
         $stmt = $db->prepare($query);
         $stmt->execute([
-            'nombre'     => $nombre,
-            'fk_usuario' => $fk_usuario
+            'nombre'     => $data['nombre'],
+            'fk_usuario' => $data['fk_usuario']
         ]);
+    }
+    public function eliminarFoto(int $fk_usuario):void
+    {
+        $db = DB::getConexion();
+        $query = "DELETE FROM fotos WHERE fk_usuario = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$fk_usuario]);
+    }
+    /**
+     * Trae la imagen correspontiente a ese usuario
+     * @param int $fk_usuario = id del usuario que queremos traer.
+     * @return ?Fotos
+     */
+    public function traerPorUsuario(int $fk_usuario): ?Fotos
+    {
+        $db = DB::getConexion();
+        $query = "SELECT * FROM fotos WHERE fk_usuario = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$fk_usuario]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, static::class);
+        $foto = $stmt->fetch();
+        if (!$foto) {
+            return null;
+        }
+        return $foto;
+    }
+    /**
+     * Verifica si el usuario ya tiene una foto agregada
+     * 
+     */
+    public function usuarioTieneFoto(int $fk_usuario): bool
+    {
+        $imagenes = $this->todo();
+        foreach ($imagenes as $imagen) {
+            if ($imagen->getFkUsuario() == $fk_usuario) {
+                return true;
+            }
+        }
+        return false;
     }
 
      // Métodos Get

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2023 a las 00:05:37
+-- Tiempo de generación: 26-08-2023 a las 23:49:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `chats` (
 INSERT INTO `chats` (`id_chats`, `ultima_actividad`) VALUES
 (9, '2023-08-13 15:03:38'),
 (11, '2023-08-13 15:08:54'),
-(15, '2023-08-15 16:38:08');
+(15, '2023-08-15 16:38:08'),
+(18, '2023-08-25 23:42:52');
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,9 @@ INSERT INTO `chats_de_usuarios` (`fk_chats`, `fk_usuarios`) VALUES
 (11, 2),
 (11, 4),
 (15, 3),
-(15, 4);
+(15, 4),
+(18, 2),
+(18, 5);
 
 -- --------------------------------------------------------
 
@@ -75,6 +78,16 @@ CREATE TABLE `fotos` (
   `nombre` varchar(255) NOT NULL,
   `fk_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `fotos`
+--
+
+INSERT INTO `fotos` (`id_fotos`, `nombre`, `fk_usuario`) VALUES
+(12, '20230826234608_BobEsponga.webp', 5),
+(13, '20230826234641_mafalda.jfif', 4),
+(14, '20230826234703_tom.jpg', 3),
+(15, '20230826234823_Abraham_anime.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -104,7 +117,8 @@ INSERT INTO `mensajes` (`id_mensajes`, `contenido`, `tiempo_de_envio`, `fk_usuar
 (7, 'excelente.\r\n', '2023-08-22 20:07:11', 3, 9),
 (8, 'mensaje genérico', '2023-08-22 20:07:28', 2, 9),
 (9, 'mensaje generico', '2023-08-22 20:07:34', 2, 9),
-(10, 'mensaje genérico', '2023-08-22 20:07:52', 3, 9);
+(10, 'mensaje genérico', '2023-08-22 20:07:52', 3, 9),
+(11, 'hola facu\r\n', '2023-08-25 23:43:17', 2, 18);
 
 -- --------------------------------------------------------
 
@@ -125,9 +139,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `username`, `password`, `email`, `ultima_conexion`) VALUES
-(2, '$abraham', '$2y$10$xJQWQ5bz1AtFIUp0v03cnud1y72hfpcxRH4tbdIKI1TOAeSWdg2.S', 'abraham@prueba.com', '2023-08-12 19:38:36'),
+(2, '@abraham', '$2y$10$xJQWQ5bz1AtFIUp0v03cnud1y72hfpcxRH4tbdIKI1TOAeSWdg2.S', 'abraham@prueba.com', '2023-08-12 19:38:36'),
 (3, '$juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45'),
-(4, '$pepe grillo', '$2y$10$cJN8jizKVfpsR7N8LXwxveJufwk0H93ovsQBmbjmJpnBQbX.mehau', 'pepe@prueba.com', '2023-08-13 15:08:26');
+(4, '$pepe grillo', '$2y$10$cJN8jizKVfpsR7N8LXwxveJufwk0H93ovsQBmbjmJpnBQbX.mehau', 'pepe@prueba.com', '2023-08-13 15:08:26'),
+(5, '@facu', '$2y$10$w3JS65seqtLR5LsTRRB3r.F7flDpVgFDvO2WWZq3CQUm8O7N3IpbO', 'facu@prueba.com', '2023-08-25 23:42:41');
 
 --
 -- Índices para tablas volcadas
@@ -176,25 +191,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id_fotos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fotos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id_mensajes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_mensajes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
