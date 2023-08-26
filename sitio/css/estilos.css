@@ -4,140 +4,165 @@
     box-sizing: border-box;
     font-size: 18px;
 }
+
 main{
-    max-width: 1366px;
+    /* max-width: 1366px; Interiere con el background de los contenedores del registro/logeo */
     margin: auto;
     background-color: #202B3E;
 }
-.login{
-    display: flex;
-    align-items: center;
+
+.auth-contenedor{
     width: 100%;
-    height: 100vh;
-    justify-content: space-between;
+    min-height: 100vh;
     background-image: url('../assets/whatsapp-wallpaper-header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: contrast(50%);
-}
-.login>article{
-    margin: auto;
-    width: 100%;
-    height: 90vh;
-    max-width: 500px;
-    border: 1px solid #03030333;
-     background-color: #03030355;
-     backdrop-filter: blur(4px);
-    border-radius: 8px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.auth-contenedor > article{
+    width: 90%;
+    max-width: 800px;
+    min-width: 300px;
+    border-radius: 8px;
+    margin: 0px auto;
     padding: 3em 0;
     color: #f6f6f6;
-}
-.login form{
-    width: 80%;
-}
-.login-titulos{
-    display: flex;
-    width: 80%;
-    margin-bottom: 1em;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    color: #aeaeae;
-}
-.login-titulos>h1, .login-titulos>a{
-    color: #f6f6f6;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-.login-titulos>a{
-    color: #f6f6f644;
-}
-.login .input-container{
-    margin: auto;
-    max-width: 450px;
+    background-color: rgba(3, 3, 3, 0.3);
+    backdrop-filter: blur(4px);
+    
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
-.input-container label{
-    padding: .6em 0 .2em 0;
-    font-size: .8em;
+
+.form-auth{
+    width: 95%;
+    max-width: 600px;
 }
+
+.auth-titulo{
+    width: 90%;
+    min-width: 270px;
+    text-align: center;
+    font-weight: 700;
+    color: #aeaeae;
+    margin-bottom: 1em;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.auth-titulo > a{
+    text-decoration: none;
+    display: block;
+    width: 120px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
 .input-container input{
     width: 100%;
     padding: .5em;
-    background-color: #f6f6f600;
+    background-color: rgba(246, 246, 246, 0.222);
+    border-radius: 4px;
     border: none; 
     transition: all .2s;
 }
 .input-container input::placeholder{
-    color: #202B3E;
+    color: #ddd;
 }
+
 .input-container input:focus{
     outline: none;
     border: none;
-    background-color: #f6f6f6;
+    background-color: rgba(246, 246, 246, 0.444);
     border-radius: 4px;
 }
+
 .input-container::after{
     content: '';
     width: 100%;
     height: 2px;
     border-bottom: 2px solid #f6f6f6;
 }
+
 .input-container div{
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .input-container #ojo{
     cursor: pointer;
     padding: .5em .6em;
     transition: all .2s;
+    background-color: rgba(246, 246, 246, 0.222);
+    border-radius: 0px 4px 4px 0px;
 }
+
 .input-container #ojo:hover{
-    background: #f6f6f6;
+    background-color: rgba(246, 246, 246, 0.444);
     color: #202B3E;
-    border-radius: 4px;
 }
-.login form>div{
+
+.input-container > div > input[type="password"],
+.input-container > div > input[type="password"]:focus{
+    border-radius: 4px 0px 0px 4px;
+}
+
+.form-auth > div{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
-.login button{
-    background: none;
-    border: 2px solid #f6f6f6;
-    border-radius: 4px;
-    padding: .2em 1em;
+
+.btn-auth{
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgba(144, 238, 144, 0.333);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
     cursor: pointer;
-    font-weight: bolder;
-    color: #f6f6f6;
-    transition: all .2s;
+    margin-bottom: 20px;
 }
-.login button:hover{
-    background-color: #f6f6f6;
-    color: #202B3E;
+
+.btn-auth:hover{
+    background-color: rgba(144, 238, 144, 0.666);
 }
-.login p{
-    line-height: 50px;
-    font-size:  1em;
+
+.form-auth > div > p{
+    text-align: center;
 }
-.login p>a{
-    color: #f6f6f6;
-    font-weight: bolder;
-}
+
 fieldset{
     border: none;
     margin-bottom: 1.5em;
 }
-legend{
+
+fieldset > legend{
     visibility: hidden;
 }
 /*---------------------------------------Fin de login y registro----------------------------------------------*/

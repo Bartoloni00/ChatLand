@@ -1,10 +1,10 @@
-<section class="login">
+<section class="auth-contenedor">
     <article>
-        <div class="login-titulos">
-            <h1>Login</h1>
+        <div class="auth-titulo">
+            <a href="#">Login</a>
             <a href="index.php?s=registro">Registro</a>
         </div>
-        <form action="acciones/login.php" method="post">
+        <form action="acciones/login.php" method="post" class="form-auth">
             <fieldset>
                 <legend>Datos de registro</legend>
                 <div class="input-container">
@@ -20,7 +20,7 @@
                 </div>
             </fieldset>
             <div>
-                <button type="submit">Ingresar</button>
+                <button type="submit" class="btn-auth">Ingresar</button>
                 <p>¿No tienes cuenta? ¡<a href="index.php?s=registro">Registrate</a>!</p>
             </div>
         </form>
