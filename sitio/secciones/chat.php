@@ -12,7 +12,8 @@
         $chatCon = 'Este es tu chat con ';
         foreach ($usuariosDelChat as $usuario) {
             if ($usuario !== $idUsuarioAutenticado) {
-                $chatCon .= (new Usuarios)->porId($usuario)->getUsername();
+                $chatConUsuario = (new Usuarios)->porId($usuario);
+                $chatCon .= $chatConUsuario->getUsername();
                 break;
             }
         }
@@ -23,6 +24,11 @@
     }
 ?>
 <header class="buscador">
+    <?php
+        $foto = (new Fotos)->traerPorUsuario($chatConUsuario->getIdUsuarios());
+        $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
+    ?>
+    <img src="assets/users/mobile/Mobile<?=$nombreFoto?>" alt="foto de perfil">
     <span>
         <?=$chatCon?>
     </span>

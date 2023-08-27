@@ -51,7 +51,10 @@ $rutaOpciones = $rutas[$vistaInterna];
                             $usuariosDelChat = $claseChats->traerUsuariosDelChat($chat->getIdChats());
                             foreach ($usuariosDelChat as $usuario) {
                                 if ($usuario !== $idUsuarioAutenticado) {
-                                    echo 'Tu conversacion con '. (new Usuarios)->porId($usuario)->getUsername();
+                                    $foto = (new Fotos)->traerPorUsuario($usuario);
+                                    $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
+                                    echo '<img src="assets/users/mobile/Mobile'.$nombreFoto.'" alt="foto de perfil">';
+                                    echo '<span>'.'Tu conversacion con '. (new Usuarios)->porId($usuario)->getUsername(). '</span>';
                                 }
                             }
                         ?>

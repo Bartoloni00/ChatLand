@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2023 a las 23:49:37
+-- Tiempo de generación: 27-08-2023 a las 22:46:44
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,7 +40,8 @@ INSERT INTO `chats` (`id_chats`, `ultima_actividad`) VALUES
 (9, '2023-08-13 15:03:38'),
 (11, '2023-08-13 15:08:54'),
 (15, '2023-08-15 16:38:08'),
-(18, '2023-08-25 23:42:52');
+(18, '2023-08-25 23:42:52'),
+(19, '2023-08-27 17:46:02');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,9 @@ INSERT INTO `chats_de_usuarios` (`fk_chats`, `fk_usuarios`) VALUES
 (15, 3),
 (15, 4),
 (18, 2),
-(18, 5);
+(18, 5),
+(19, 4),
+(19, 5);
 
 -- --------------------------------------------------------
 
@@ -84,10 +87,10 @@ CREATE TABLE `fotos` (
 --
 
 INSERT INTO `fotos` (`id_fotos`, `nombre`, `fk_usuario`) VALUES
-(12, '20230826234608_BobEsponga.webp', 5),
-(13, '20230826234641_mafalda.jfif', 4),
-(14, '20230826234703_tom.jpg', 3),
-(15, '20230826234823_Abraham_anime.jpg', 2);
+(19, '20230827221011_BobEsponga.webp', 5),
+(20, '20230827221057_mafalda.jfif', 4),
+(21, '20230827221126_tom.jpg', 3),
+(22, '20230827221301_Abraham_anime.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -140,8 +143,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuarios`, `username`, `password`, `email`, `ultima_conexion`) VALUES
 (2, '@abraham', '$2y$10$xJQWQ5bz1AtFIUp0v03cnud1y72hfpcxRH4tbdIKI1TOAeSWdg2.S', 'abraham@prueba.com', '2023-08-12 19:38:36'),
-(3, '$juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45'),
-(4, '$pepe grillo', '$2y$10$cJN8jizKVfpsR7N8LXwxveJufwk0H93ovsQBmbjmJpnBQbX.mehau', 'pepe@prueba.com', '2023-08-13 15:08:26'),
+(3, '@juan', '$2y$10$cF0R9sJcQucSMeghB9EZIO2XWZl6t3t8gOUqdNBqiEGzlEHpC/KEi', 'juan@prueba.com', '2023-08-13 11:16:45'),
+(4, '@pepe grillo', '$2y$10$cJN8jizKVfpsR7N8LXwxveJufwk0H93ovsQBmbjmJpnBQbX.mehau', 'pepe@prueba.com', '2023-08-13 15:08:26'),
 (5, '@facu', '$2y$10$w3JS65seqtLR5LsTRRB3r.F7flDpVgFDvO2WWZq3CQUm8O7N3IpbO', 'facu@prueba.com', '2023-08-25 23:42:41');
 
 --
@@ -191,13 +194,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_chats` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id_fotos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_fotos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`

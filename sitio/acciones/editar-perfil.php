@@ -53,8 +53,12 @@ if(count($errores) > 0){
         $imagenEditada = Image::make($imagen['tmp_name']);//abro la imagen para luego editarla
         $imagenEditada->fit(200,200);//recorto y redimenciono la imagen
         $imagenEditada->save(__DIR__.'/../assets/users/'.$nombreImagen);//guardo la imagen
+
+        $nombreImagenMobile = 'Mobile'.$nombreImagen;
+        $imagenEditadaMobile = Image::make($imagen['tmp_name']);
+        $imagenEditadaMobile->fit(50,50);
+        $imagenEditadaMobile->save(__DIR__.'/../assets/users/mobile/'.$nombreImagenMobile);
         $imagen = $nombreImagen;//asigno el nombre de la imagen para que sea guardado en la BD
-        $imagen = $nombreImagen;
     }else{
         $imagen = null;
     }
@@ -76,6 +80,7 @@ try {
         if ($imagen !== null) {
             if($fotoClass->usuarioTieneFoto($idUsuarioAutenticado)){
                 unlink(__DIR__.'/../assets/users/'.$fotoClass->traerPorUsuario($idUsuarioAutenticado)->getNombre());
+                unlink(__DIR__.'/../assets/users/mobile/Mobile'.$fotoClass->traerPorUsuario($idUsuarioAutenticado)->getNombre());
                 $fotoClass->eliminarFoto($idUsuarioAutenticado);
                 echo 'se elimino la imagen';
             }
