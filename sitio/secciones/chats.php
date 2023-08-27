@@ -46,7 +46,7 @@ $rutaOpciones = $rutas[$vistaInterna];
         <ul>
             <?php foreach ($chats as $chat):?>
                 <li class="chat">
-                    <a href="http://localhost/chatLand/sitio/index.php?s=chats&ss=chat&id=<?=$chat->getIdChats();?>">
+                    <a href="index.php?s=chats&ss=chat&id=<?=$chat->getIdChats();?>">
                         <?php 
                             $usuariosDelChat = $claseChats->traerUsuariosDelChat($chat->getIdChats());
                             foreach ($usuariosDelChat as $usuario) {

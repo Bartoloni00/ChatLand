@@ -73,6 +73,11 @@ main{
     cursor: pointer;
 }
 
+
+.auth-titulo > a:hover{
+    background-color: rgba(255,255,255,0.444);
+}
+
 .input-container{
     display: flex;
     flex-direction: column;
@@ -155,6 +160,16 @@ main{
 
 .form-auth > div > p{
     text-align: center;
+}
+
+.form-auth > div > p > a:link{
+    color: rgb(255,255,255);
+    font-weight: bold;
+}
+
+.form-auth > div > p > a:hover,
+.form-auth > div > p > a:visited{
+    color:rgba(255,255,255,0.777);
 }
 
 fieldset{
