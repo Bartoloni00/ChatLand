@@ -9,6 +9,11 @@ class Fotos extends Modelo{
     private string $nombre;
     private int $fk_usuario;
 
+    /**
+     * Agrega la imagen a la tabla fotos.
+     * @param array $data = 'nombre' de la imagen y 'fk_usuario' id del usuario al que pertenece dicha imagen
+     * @return void
+     */
     public function agregarFoto(array $data): void
     {
         $db = DB::getConexion();
@@ -20,6 +25,12 @@ class Fotos extends Modelo{
             'fk_usuario' => $data['fk_usuario']
         ]);
     }
+
+    /**
+     * Elimina la imagen de la tabla fotos.
+     * @param int $fk_usuario = id del usuario que queremos eliminar su foto.
+     * @return void
+     */
     public function eliminarFoto(int $fk_usuario):void
     {
         $db = DB::getConexion();
@@ -27,6 +38,7 @@ class Fotos extends Modelo{
         $stmt = $db->prepare($query);
         $stmt->execute([$fk_usuario]);
     }
+
     /**
      * Trae la imagen correspontiente a ese usuario
      * @param int $fk_usuario = id del usuario que queremos traer.
@@ -49,6 +61,8 @@ class Fotos extends Modelo{
     /**
      * Verifica si el usuario ya tiene una foto agregada
      * 
+     * @param int $fk_usuario : el id del usuario del cual queremos verificar si posee o no una foto de perfil
+     * @return bool
      */
     public function usuarioTieneFoto(int $fk_usuario): bool
     {

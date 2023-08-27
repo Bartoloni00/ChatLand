@@ -16,7 +16,8 @@ class Modelo{
  *
  * @return array|static[] Un arreglo de objetos de la clase actual.
  */
-    public function todo():array{
+    public function todo():array
+    {
         $db = DB::getConexion();
         $query = "SELECT * FROM " . $this->tabla;
         $stmt = $db->prepare($query);

@@ -83,6 +83,7 @@ class Usuarios extends Modelo{
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);
     }
+    
     /**
      * Edita un usuario de la tabla usuarios
      * 
