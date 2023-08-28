@@ -2,7 +2,7 @@
 $usuario = (new Auth)->getUsuarios();
 ?>
 <h1>mi perfil</h1>
-<a href="index.php?s=chats"><--</a>
+<a href="index.php?s=chats" id="flecha" title="ir hacia atras">ir hacia atras</a>
 <form action="acciones/editar-perfil.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Datos del usuario</legend>

@@ -54,6 +54,6 @@
         <input type="hidden" name="chat" value="<?=$id?>">
         <label for="mensaje">Mensaje</label>
         <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="enviar" title="Enviar mensaje">Enviar</button>
     </form>
 </footer>

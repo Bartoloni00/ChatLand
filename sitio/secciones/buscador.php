@@ -6,8 +6,8 @@ unset($_SESSION['buscador']);
 <form action="acciones/buscador.php" method="post" class="buscador">
     <label for="buscador">Buscador</label>
     <input type="text" name="buscador" id="buscador">
-    <button type="submit" name="accion" value="buscar">Buscar</button>
-    <button type="submit" name="accion" value="reiniciar">Reiniciar</button>
+    <button type="submit" name="accion" value="buscar" title="buscar">Buscar</button>
+    <button type="submit" name="accion" value="reiniciar" title="reiniciar">Reiniciar</button>
 </form>
 <div class="otros-users">
 <?php foreach ($usuariosAmostrar as $usuario):?>
