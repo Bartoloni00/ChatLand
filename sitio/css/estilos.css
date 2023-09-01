@@ -118,17 +118,24 @@ main{
 }
 
 .input-container #ojo{
+    background-image: url('../assets/icons/icons8-visible-50.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     cursor: pointer;
     padding: .5em .6em;
     transition: all .2s;
     background-color: rgba(246, 246, 246, 0.222);
+    color: #0000;
     border-radius: 0px 4px 4px 0px;
 }
 
 .input-container #ojo:hover{
     background-color: rgba(246, 246, 246, 0.444);
-    color: #202B3E;
+    /* color: #202B3E; */
+    color: #0000;
 }
+
 
 .input-container > div > input[type="password"],
 .input-container > div > input[type="password"]:focus{
@@ -247,9 +254,28 @@ fieldset > legend{
     align-items: center;
 }
 #chats>.principal-article form[class="buscador"] input{
-    width: 90%;
+    width: 50%;
     border-radius: 4px;
     padding: .2em;
+}
+.buscador button[value="buscar"],.buscador button[value="reiniciar"]{
+    background-image: url('../assets/icons/icons8-búsqueda-50.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #0000;
+    width: 50px;
+    height: 50px;
+    border: none;
+    color: #0000;
+    cursor: pointer;
+    transition: all .2s;
+}
+.buscador button[value="reiniciar"]{
+    background-image: url('../assets/icons/icons8-reiniciar-50.png');
+}
+.buscador button[value="buscar"]:hover ,.buscador button[value="reiniciar"]:hover{
+    background-color: rgba(246, 246, 246, 0.444);
 }
 .otros-users{
     height: 92vh;
@@ -310,7 +336,6 @@ fieldset > legend{
     border-radius: 40px;
     border-bottom-left-radius: 0;
 }
-
 #flecha,#enviar{
     display: inline-block;
     background-image: url('../assets/icons/icons8-izquierda-50.png');
@@ -322,7 +347,6 @@ fieldset > legend{
     color: #0000;
     cursor: pointer;
 }
-
 #flecha:hover, #enviar:hover{
     background-color: rgba(246, 246, 246, 0.444);
 }
@@ -333,7 +357,10 @@ fieldset > legend{
 .profile-container{
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-image: url('../assets/background/cool-background.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .profile-container > form {
