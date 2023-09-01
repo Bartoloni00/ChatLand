@@ -2,6 +2,10 @@
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
 
+use Bartoloni00\Modelos\Usuarios;
+use Bartoloni00\Auth\Auth;
+use Exception;
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 

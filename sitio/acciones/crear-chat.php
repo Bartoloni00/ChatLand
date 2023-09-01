@@ -2,6 +2,11 @@
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
 
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Chat;
+use Bartoloni00\Modelos\Usuarios;
+use Exception;
+
 $autenticado = (new Auth);
 if (!$autenticado->estaAutenticado()) {
     $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para crear un chat';
@@ -30,7 +35,7 @@ try {
         header('Location: ../index.php?s=chats');
         exit;
     }
-} catch (\Exception $error) {
+} catch (Exception $error) {
      $_SESSION['mensajeError'] = 'Ocurrio un error inesperado intente en unos minutos'. $error;
     header('Location: ../index.php?s=chats');
     exit;

@@ -1,4 +1,9 @@
 <?php
+use \Bartoloni00\Auth\Auth;
+use \Bartoloni00\Modelos\Buscador;
+use \Exception;
+use \Bartoloni00\Modelos\Usuarios;
+
 require_once __DIR__ . '/../bootstrap/autoload.php';
 session_start();
 

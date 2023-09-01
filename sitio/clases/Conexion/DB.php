@@ -1,4 +1,7 @@
 <?php
+  namespace Bartoloni00\Conexion;
+  use PDO;
+  use Exception;
 /**
 * Conexion a la base de datos
 */

@@ -1,5 +1,9 @@
 <?php
-require_once __DIR__ . '/../../bootstrap/autoload.php';
+  namespace Bartoloni00\Modelos;
+
+use \Bartoloni00\Conexion\DB;
+use \Bartoloni00\Modelos\Usuarios;
+use PDO;
 
 class Buscador extends Usuarios {
     /**

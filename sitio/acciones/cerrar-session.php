@@ -2,6 +2,9 @@
 session_start();
 require_once __DIR__ . '/../clases/auth/Auth.php';
 
+use Bartoloni00\Auth\Auth;
+use Exception;
+
 if(!(new Auth())->estaAutenticado()){
     $_SESSION['mensajeError'] = 'No existe una session abierta';
     header('Location : ../index.php?s=home');

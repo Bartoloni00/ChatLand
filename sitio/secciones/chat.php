@@ -1,4 +1,11 @@
 <?php
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Chat;
+use Bartoloni00\Modelos\Usuarios;
+use Bartoloni00\Modelos\Fotos;
+use Bartoloni00\Modelos\Mensaje;
+
+
     $idUsuarioAutenticado = (new Auth)->getUsuarios()->getIdUsuarios();
     $id = $_GET['id']??null;
     if ($id == null) {

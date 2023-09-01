@@ -1,5 +1,10 @@
 <?php
-require_once __DIR__ . '/../../bootstrap/autoload.php';
+namespace Bartoloni00\Modelos;
+
+use \Bartoloni00\Conexion\DB;
+use PDO;
+use DateTime;
+use DateTimeZone;
 
 /**
  * Clase base para todos los modelos del sistema.

@@ -2,6 +2,10 @@
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
 
+use \Bartoloni00\Modelos\Usuarios;
+use \Bartoloni00\Modelos\Chat;
+use \Exception;
+
 $email = $_POST['email'];
 $username = trim($_POST['username']);
 $password = $_POST['password'];
@@ -50,7 +54,7 @@ if(count($errores) > 0){
         $_SESSION['mensajeExito'] = 'Has creado un nuevo usuario';
         header('Location: ../index.php?s=login');
         exit;
-    } catch (\Exception $error) {
+    } catch (Exception $error) {
         $_SESSION['mensajeError'] = 'Oh no, Ocurrio un error inesperado en el registro del usuario';
         header('Location: ../index.php?s=crear-cuenta');
         exit;
