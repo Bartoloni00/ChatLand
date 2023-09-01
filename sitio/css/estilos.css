@@ -80,6 +80,7 @@ main{
 
 .input-container{
     display: flex;
+    max-width: 1200px;
     flex-direction: column;
     margin: 20px auto;
 }
@@ -135,6 +136,7 @@ main{
     color: #0000;
 }
 
+
 .input-container > div > input[type="password"],
 .input-container > div > input[type="password"]:focus{
     border-radius: 4px 0px 0px 4px;
@@ -148,6 +150,7 @@ main{
 }
 
 .btn-auth{
+    display: block;
     padding: 10px 20px;
     border-radius: 15px;
     background-color: rgba(144, 238, 144, 0.333);
@@ -157,7 +160,7 @@ main{
     font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
 
 .btn-auth:hover{
@@ -349,4 +352,64 @@ fieldset > legend{
 }
 #enviar{
     background-image: url('../assets/icons/icons8-play-50.png');
+}
+/*---------------------------------------Profile section----------------------------------------------*/
+.profile-container{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+.profile-container > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    max-width: 800px;
+}
+
+.profile-header{
+    width: 100%;
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header > h1{
+    font-size: 1.5rem;
+    text-align: center;
+    color: #f6f6f6;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+}
+
+.profile-header > a{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.profile-form{
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.profile-form > fieldset > img{
+    display: block;
+    margin: 10px auto;
 }

@@ -4,3 +4,16 @@ sitio/vendor/intervention/image/
 sitio/vendor/psr/http-message/
 sitio/vendor/psr/http-factory/
 sitio/vendor/ralouphie/getallheaders/
+sitio/vendor/autoload.php
+sitio/vendor/composer/autoload_classmap.php
+sitio/vendor/composer/autoload_files.php
+sitio/vendor/composer/autoload_namespaces.php
+sitio/vendor/composer/autoload_psr4.php
+sitio/vendor/composer/autoload_real.php
+sitio/vendor/composer/autoload_static.php
+sitio/vendor/composer/ClassLoader.php
+sitio/vendor/composer/installed.json
+sitio/vendor/composer/installed.php
+sitio/vendor/composer/InstalledVersions.php
+sitio/vendor/composer/LICENSE
+sitio/vendor/composer/platform_check.php
