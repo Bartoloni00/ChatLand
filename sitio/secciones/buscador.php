@@ -1,4 +1,7 @@
 <?php
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Fotos;
+
 $usuariosAmostrar = isset($_SESSION['buscador']) ? $_SESSION['buscador'] : $usuarios;
 unset($_SESSION['buscador']);
 ?>

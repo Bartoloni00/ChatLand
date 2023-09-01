@@ -1,4 +1,9 @@
 <?php
+use Bartoloni00\Modelos\Usuarios;
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Chat;
+use Bartoloni00\Modelos\Fotos;
+
 $rutas = [
     'error' => [
      'title' => 'Página no encontrada',

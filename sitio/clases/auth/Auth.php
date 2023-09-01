@@ -1,5 +1,7 @@
 <?php
-  require_once __DIR__ . '/../modelos/Usuarios.php';
+  namespace Bartoloni00\Auth;
+
+  use \Bartoloni00\Modelos\Usuarios;
 //traer usuarios
 /**
  * Manejador del estado de autenticacion de usuarios

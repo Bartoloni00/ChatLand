@@ -1,4 +1,7 @@
 <?php
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Fotos;
+
 $usuario = (new Auth)->getUsuarios();
 ?>
 <h1>mi perfil</h1>

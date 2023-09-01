@@ -3,6 +3,10 @@ session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
 use Intervention\Image\ImageManagerStatic as Image;
 
+use Bartoloni00\Auth\Auth;
+use Bartoloni00\Modelos\Usuarios;
+use Bartoloni00\Modelos\Fotos;
+
 $autenticado = (new Auth);
 if (!$autenticado->estaAutenticado()) {
     $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para acceder a este contenido';

@@ -1,5 +1,10 @@
 <?php
-require_once __DIR__ . '/../../bootstrap/autoload.php';
+namespace Bartoloni00\Modelos;
+
+use Bartoloni00\Modelos\Modelo;
+use Bartoloni00\Conexion\DB;
+use PDO;
+
 
 class Usuarios extends Modelo{
     protected string $tabla = "usuarios";
