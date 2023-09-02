@@ -183,7 +183,6 @@ main{
 
 fieldset{
     border: none;
-    margin-bottom: 1.5em;
 }
 
 fieldset > legend{
@@ -357,7 +356,7 @@ fieldset > legend{
 .profile-container{
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
 }
 
 .profile-container > form {
@@ -404,6 +403,10 @@ fieldset > legend{
     backdrop-filter: blur(10px);
 }
 
+.profile-header > a:hover{
+    background-color: rgba(246, 246, 246, 0.444);
+}
+
 .profile-form{
     max-width: 1200px;
     margin: 20px auto;
@@ -412,4 +415,5 @@ fieldset > legend{
 .profile-form > fieldset > img{
     display: block;
     margin: 10px auto;
+    border-radius: 4px;
 }
