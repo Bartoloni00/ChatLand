@@ -417,3 +417,48 @@ fieldset > legend{
     margin: 10px auto;
     border-radius: 4px;
 }
+
+
+/*---------------------------------------ERROR section----------------------------------------------*/
+
+#Error{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Error > .error-container{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px;
+    border-radius: 12px;
+}
+
+#Error > .error-container > h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 6px;
+}
+
+.error-container > picture{
+    width: 100%;
+}
+
+.error-container > picture > img{
+    display: block;
+    width: 100%;
+    min-height: auto;
+}
