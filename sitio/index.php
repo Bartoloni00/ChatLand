@@ -56,7 +56,7 @@
 <?php
         if(isset($_SESSION['mensajeExito'])):
         ?>
-        <div class="msg-exito"><?= $_SESSION['mensajeExito']; ?></div>
+        <div class="msg-exito mensajeEmergente"><?= $_SESSION['mensajeExito']; ?></div>
         <?php
         unset($_SESSION['mensajeExito']);
         endif;
@@ -64,7 +64,7 @@
         <?php
         if(isset($_SESSION['mensajeError'])):
         ?>
-        <div class="msg-error"><?= $_SESSION['mensajeError']; ?></div>
+        <div class="msg-error mensajeEmergente"><?= $_SESSION['mensajeError']; ?></div>
         <?php
         unset($_SESSION['mensajeError']);
         endif;

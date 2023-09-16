@@ -1,10 +1,22 @@
-const ojo = document.getElementById('ojo');
-const inputPassword = document.querySelector('.input-container>div>input');
+const ojo = document.getElementById('ojo')
+const inputPassword = document.querySelector('.input-container>div>input')
 
-ojo.addEventListener('click',()=>{
-    if (inputPassword.type === 'password') {
-        inputPassword.type = 'text';
-    } else {
-        inputPassword.type = 'password';
+if (ojo) {
+    ojo.addEventListener('click',()=>{
+        if (inputPassword.type === 'password') {
+            inputPassword.type = 'text'
+        } else {
+            inputPassword.type = 'password'
+        }
+    })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const mensajeEmergente = document.getElementsByClassName('mensajeEmergente')[0]
+    if (mensajeEmergente) {
+        setTimeout(()=>{
+            mensajeEmergente.remove()
+        }, 5000)
     }
-})
+  });
+  

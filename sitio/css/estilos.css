@@ -12,7 +12,7 @@ main{
 }
 /* Personalizar el fondo de la barra de desplazamiento */
 ::-webkit-scrollbar {
-    width: 10px; /* Ancho de la barra de desplazamiento */
+    width: 4px; /* Ancho de la barra de desplazamiento */
   }
   
   /* Personalizar el fondo de la barra de desplazamiento */
@@ -276,6 +276,9 @@ fieldset > legend{
     background-color: rgba(255,255,255,0.06);
     border-right: 1px solid rgba(255,255,255,0.1);
     padding-left: 10px;
+}
+#chats>.chats>ul>.chat{
+    margin-right: 6px;
 }
 #chats>.chats>ul>.chat>a{
     display: flex;
