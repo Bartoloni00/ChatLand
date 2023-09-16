@@ -10,7 +10,27 @@ main{
     margin: auto;
     background-color: #202B3E;
 }
-
+/* Personalizar el fondo de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  /* Personalizar el fondo de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f200; /* Color de fondo del fondo de la barra de desplazamiento */
+  }
+  
+  /* Personalizar el pulgar de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background-color: #ff03ff; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 4px; /* Borde redondeado para el pulgar */
+  }
+  
+  /* Personalizar el pulgar de la barra de desplazamiento cuando el cursor está sobre él */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #ff03ff; /* Cambia el color cuando se pasa el cursor por encima */
+  }
+  
 .auth-contenedor{
     width: 100%;
     min-height: 100vh;
@@ -204,58 +224,105 @@ fieldset > legend{
     background-color: #ff000066;
 }
 /*---------------------------------------Chats section----------------------------------------------*/
-#chats{
-    display: flex;
+#chats {
+    display: grid;
+    grid-template-columns: 25% 75%; /* El primer artículo ocupa el 25% del ancho, el segundo el 75%. */
+    grid-template-rows: 8% 92vh; /* La primera fila ocupa el 8% del alto, la segunda el 92% (altura de la pantalla menos la primera fila). */
+    width: 100vw; /* Ocupa todo el ancho de la pantalla. */
+    height: 100vh; /* Ocupa todo el alto de la pantalla. */
+  }
+  
+  .chats {
+    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
     height: 100vh;
-}
-#chats .menu, .buscador,.chat-footer{
-    background-color: #ff0000;
+  }
+  
+  .menu {
+    background-color: rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     height: 8vh;
-    width: 100%;
-}
-#chats .menu>ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  
+  /* Estilos para el menú y otros elementos dentro de .menu según tus necesidades. */
+  .menu ul {
+    height: 100%;
     list-style: none;
-}
-#chats .menu>ul>li{
-    margin: .5em;
-}
-#chats .menu>ul>li>a{
-    background-color: #fff;
-    padding: .5em .2em;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .menu ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: .6em;
     border-radius: 4px;
+    transition: all .3s;
+    text-transform: capitalize;
+  }
+  .menu ul li a:hover{
+    background-color: rgba(246, 246, 246, 0.444);
+  }
+#chats>.chats>ul{
+    height: 92%;
+    overflow-y: scroll; /* Agrega desplazamiento vertical si es necesario. */
+    background-color: rgba(255,255,255,0.06);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    padding-left: 10px;
+}
+#chats>.chats>ul>.chat>a{
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: .5em 0 .5em 10px;
+    gap: 10px;
+    margin: 0.2em 0;
+    color: #f2f2f2;
+    text-decoration: none;
+    background-color: rgba(3, 3, 3, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+    transition: all .3s;
 }
-#chats>.chats{
-    background-color: #00ff00;
-    width: 30vw;
+#chats>.chats>ul>.chat>a>img{
+    border-radius: 4px;
 }
-#chats>.chats .chat{
-    padding: 1em;
-    border: 1px solid black;
-    height: 50px;
+#chats>.chats>ul>.chat>a:hover{
+    background-color: rgba(3, 3, 3, 0.6);
 }
-#chats>.principal-article{
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+#chats{
+    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
 }
 #chats>.principal-article form[class="buscador"]{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    height: 8vh;
+    background-color: rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #f2f2f2;
+    letter-spacing: 2px;
+}
+form[class="buscador"] label{
+    color: #0000;
 }
 #chats>.principal-article form[class="buscador"] input{
-    width: 50%;
+    width: 70%;
     border-radius: 4px;
-    padding: .2em;
+    padding: .4em;
+    border: none;
+    outline: none;
+}
+#chats>.principal-article form[class="buscador"] input:active,
+#chats>.principal-article form[class="buscador"] input:hover
+{
+    outline: invert;
 }
 .buscador button[value="buscar"],.buscador button[value="reiniciar"]{
     background-image: url('../assets/icons/icons8-búsqueda-50.png');
@@ -269,6 +336,7 @@ fieldset > legend{
     color: #0000;
     cursor: pointer;
     transition: all .2s;
+    border-radius: 4px;
 }
 .buscador button[value="reiniciar"]{
     background-image: url('../assets/icons/icons8-reiniciar-50.png');
@@ -277,45 +345,95 @@ fieldset > legend{
     background-color: rgba(246, 246, 246, 0.444);
 }
 .otros-users{
+    overflow-y: scroll; /* Agrega desplazamiento vertical si es necesario. */
     height: 92vh;
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
     padding: 1em .5em;
 }
 #chats>.principal-article .usuario{
-    border: 1px solid black;
-    max-width: 20%;
-    height: 150px;
-    margin: 0 .5em .5em .5em;
-}
-
-#chats>.principal-article .chat-footer form{
-    display: flex;
-}
-#chats>.principal-article .chat-footer form label{
-    display: none;
-}
-#chats>.principal-article .chat-footer form textarea{
-    width: 100%;
-    max-height: 8vh;
-}
-
-#chats>.principal-article .mensajes{
+    border-radius: 4px;
+    width: 230px;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: .5em;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(3, 3, 3, 0.3);
+    backdrop-filter: blur(4px);
+    color: #f2f2f2;
+}
+#chats>.principal-article .usuario img{
+    border-radius: 4px;
+    border: 1px solid black;
+}
+#chats>.principal-article .usuario div{
+    display: flex;
+    height: 4rem;
     width: 100%;
-    height: 84vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
 }
-#chats>.principal-article .mensajes .mensaje{
-    padding: 1.2em;
-    margin: .2em;
-}
-#chats>.principal-article .mensajes .mensajePropio{
-    background-color: #29a82f99;
+.container {
+    display: grid;
+    grid-template-rows: 8vh 82vh 10vh; /* El header ocupa el 8vh y el contenido restante se distribuye en 1fr (fracción). */
+    max-height: 100vh; /* Establece un máximo de 100vh para el contenedor. */
+    width: 100%;
+    overflow: hidden; /* Evita que el contenido se desborde si hay mucho contenido en los mensajes. */
+  }
+  
+  .chat-header {
+    grid-row: 1; /* Coloca el header en la primera fila. */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #f2f2f2;
+  }
+  .chat-header img{
+    border-radius: 4px;
+  }
+  
+  .mensajes {
+    grid-row: 2; /* Coloca los mensajes en la segunda fila (contenido). */
+    overflow-y: scroll; /* Agrega desplazamiento vertical si es necesario. */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mensaje {
+    /* Estilos para los mensajes según tus necesidades. */
+    padding: 10px;
+    margin: 5px;
+    background-color: #f2f2f2; /* Cambia el color de fondo según tu preferencia. */
     max-width: 40%;
+  }
+
+  .chat-footer {
+    grid-row: 3;
+    width: 75vw;
+    color: white;
+    padding: 10px;
+    max-height: 10vh;
+    background-color: rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* Estilos para el formulario y otros elementos dentro del footer según tus necesidades. */
+  #mensaje {
+    width: 100%;
+  }
+  
+  
+.mensajePropio{
+    background-color: #29a82f66;
+    backdrop-filter: blur(4px);
+
     -webkit-border-radius: 40px;
     -webkit-border-bottom-right-radius: 0;
     -moz-border-radius: 40px;
@@ -324,9 +442,10 @@ fieldset > legend{
     border-bottom-right-radius: 0;
     align-self: flex-end;
 }
-#chats>.principal-article .mensajes .mensajeDeOtro{
-    background-color: #e27ee699;
-    max-width: 40%;
+.mensajeDeOtro{
+    background-color: #e27ee666;
+    backdrop-filter: blur(4px);
+
     align-self: flex-start;
     -webkit-border-radius: 40px;
     -webkit-border-bottom-left-radius: 0;
@@ -334,6 +453,30 @@ fieldset > legend{
     -moz-border-radius-bottomleft: 0;
     border-radius: 40px;
     border-bottom-left-radius: 0;
+}
+.chat-footer>form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 10vh;
+
+}
+.chat-footer>form>div{
+    height: 100%;
+    flex-grow: 1;
+}
+.chat-footer>form>div>textarea{
+    height: 100%;
+    padding: .2em;
+    max-height: 8vh;
+    border-radius: 8px;
+    resize: none;
+}
+.chat-footer>form>div>label{
+    display: block;
+    color: #0000;
+    width: 0;
+    height: 0;
 }
 #flecha,#enviar{
     display: inline-block;
@@ -345,12 +488,16 @@ fieldset > legend{
     height: 50px;
     color: #0000;
     cursor: pointer;
+    transition: all .3s;
+    border-radius: 4px;
 }
 #flecha:hover, #enviar:hover{
     background-color: rgba(246, 246, 246, 0.444);
 }
 #enviar{
     background-image: url('../assets/icons/icons8-play-50.png');
+    background-color: #0000;
+    border: none;
 }
 /*---------------------------------------Profile section----------------------------------------------*/
 .profile-container{

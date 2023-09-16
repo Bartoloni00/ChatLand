@@ -38,13 +38,13 @@ $rutaOpciones = $rutas[$vistaInterna];
     <nav class="menu">
             <ul>
                 <li>
-                    <a href="index.php?s=profile">perfil</a>
+                    <a href="index.php?s=profile">Mi perfil</a>
                 </li>
                 <li>
                     <a href="index.php?s=chats&ss=buscador">Buscador</a>
                 </li>
                 <li>
-                    <a href="acciones/cerrar-session.php">cerrar</a>
+                    <a href="acciones/cerrar-session.php">Cerrar</a>
                 </li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@ $rutaOpciones = $rutas[$vistaInterna];
                                     $foto = (new Fotos)->traerPorUsuario($usuario);
                                     $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
                                     echo '<img src="assets/users/mobile/Mobile'.$nombreFoto.'" alt="foto de perfil">';
-                                    echo '<span>'.'Tu conversacion con '. (new Usuarios)->porId($usuario)->getUsername(). '</span>';
+                                    echo '<span>'.(new Usuarios)->porId($usuario)->getUsername(). '</span>';
                                 }
                             }
                         ?>

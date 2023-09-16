@@ -30,37 +30,41 @@ use Bartoloni00\Modelos\Mensaje;
         exit;
     }
 ?>
-<header class="buscador">
-    <?php
-        $foto = (new Fotos)->traerPorUsuario($chatConUsuario->getIdUsuarios());
-        $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
-    ?>
-    <img src="assets/users/mobile/Mobile<?=$nombreFoto?>" alt="foto de perfil">
-    <span>
-        <?=$chatCon?>
-    </span>
-</header>
-
-<div class="mensajes">
-<?php
-    $mensajes = (new Mensaje)->traerMensajesDeUnChat($id);
-?>
-<?php foreach ($mensajes as $mensaje):?>
-    <div class="mensaje <?= $mensaje->getFkUsuarios() === $idUsuarioAutenticado? 'mensajePropio': 'mensajeDeOtro';?>">
-        <p><?=$mensaje->getContenido();?></p>
-        <?php 
-            $fecha = $mensaje->getTiempoDeEnvio();
+<section class="container">
+    <header class="chat-header menu">
+        <?php
+            $foto = (new Fotos)->traerPorUsuario($chatConUsuario->getIdUsuarios());
+            $nombreFoto = $foto ? $foto->getNombre() : 'default.png';
         ?>
-        <span><?=date("H:i", strtotime($fecha))?></span><!--extraigo la hora y el minuto de la fecha de envio-->
-    </div>
-<?php endforeach;?>
+        <img src="assets/users/mobile/Mobile<?=$nombreFoto?>" alt="foto de perfil">
+        <span>
+            <?=$chatCon?>
+        </span>
+    </header>
 
-</div>
-<footer class="chat-footer">
-    <form action="acciones/enviar-mensaje.php" method="post">
-        <input type="hidden" name="chat" value="<?=$id?>">
-        <label for="mensaje">Mensaje</label>
-        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
-        <button type="submit" id="enviar" title="Enviar mensaje">Enviar</button>
-    </form>
-</footer>
+    <div class="mensajes">
+    <?php
+        $mensajes = (new Mensaje)->traerMensajesDeUnChat($id);
+    ?>
+    <?php foreach ($mensajes as $mensaje):?>
+        <div class="mensaje <?= $mensaje->getFkUsuarios() === $idUsuarioAutenticado? 'mensajePropio': 'mensajeDeOtro';?>">
+            <p><?=$mensaje->getContenido();?></p>
+            <?php 
+                $fecha = $mensaje->getTiempoDeEnvio();
+            ?>
+            <span><?=date("H:i", strtotime($fecha))?></span><!--extraigo la hora y el minuto de la fecha de envio-->
+        </div>
+    <?php endforeach;?>
+
+    </div>
+    <footer class="chat-footer">
+        <form action="acciones/enviar-mensaje.php" method="post">
+            <input type="hidden" name="chat" value="<?=$id?>">
+           <div>
+           <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+           </div>
+            <button type="submit" id="enviar" title="Enviar mensaje">Enviar</button>
+        </form>
+    </footer>
+</section>
