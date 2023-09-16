@@ -18,5 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
             mensajeEmergente.remove()
         }, 5000)
     }
+    const chat = document.getElementsByClassName('mensajes')[0];
+    if (chat) {
+        chat.scrollTop = chat.scrollHeight;
+    }
   });
   

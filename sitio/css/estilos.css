@@ -3,12 +3,20 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 18px;
-}
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+}
+:root{
+    --background-color:#362947;
+    --texto1: #f2f2f2;
+    --texto2: #030303;
+    --color1: rgba(144, 238, 144, 0.333);
+    --color2: rgba(238, 144, 144, 0.333);
+    --border-radius: 4px;
+}
 main{
     /* max-width: 1366px; Interiere con el background de los contenedores del registro/logeo */
     margin: auto;
-    background-color: #202B3E;
 }
 /* Personalizar el fondo de la barra de desplazamiento */
 ::-webkit-scrollbar {
@@ -22,13 +30,13 @@ main{
   
   /* Personalizar el pulgar de la barra de desplazamiento */
   ::-webkit-scrollbar-thumb {
-    background-color: #ff03ff; /* Color del pulgar de la barra de desplazamiento */
-    border-radius: 4px; /* Borde redondeado para el pulgar */
+    background-color: var(--color2); /* Color del pulgar de la barra de desplazamiento */
+    border-radius: var(--border-radius); /* Borde redondeado para el pulgar */
   }
   
   /* Personalizar el pulgar de la barra de desplazamiento cuando el cursor está sobre él */
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #ff03ff; /* Cambia el color cuando se pasa el cursor por encima */
+    background-color: var(--color2); /* Cambia el color cuando se pasa el cursor por encima */
   }
   
 .auth-contenedor{
@@ -48,7 +56,7 @@ main{
     width: 90%;
     max-width: 800px;
     min-width: 300px;
-    border-radius: 8px;
+    border-radius: calc(var(--border-radius)*2);
     margin: 0px auto;
     padding: 3em 0;
     color: #f6f6f6;
@@ -83,7 +91,7 @@ main{
     display: block;
     width: 120px;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: calc(var(--border-radius)*4);
     background-color: rgba(255,255,255,0.2);
     border: 1px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(30px);
@@ -109,7 +117,7 @@ main{
     width: 100%;
     padding: .5em;
     background-color: rgba(246, 246, 246, 0.222);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     border: none; 
     transition: all .2s;
 }
@@ -121,7 +129,7 @@ main{
     outline: none;
     border: none;
     background-color: rgba(246, 246, 246, 0.444);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 
 .input-container::after{
@@ -147,7 +155,7 @@ main{
     transition: all .2s;
     background-color: rgba(246, 246, 246, 0.222);
     color: #0000;
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px var(--border-radius) var(--border-radius) 0px;
 }
 
 .input-container #ojo:hover{
@@ -159,7 +167,7 @@ main{
 
 .input-container > div > input[type="password"],
 .input-container > div > input[type="password"]:focus{
-    border-radius: 4px 0px 0px 4px;
+    border-radius: var(--border-radius) 0px 0px var(--border-radius);
 }
 
 .form-auth > div{
@@ -172,8 +180,8 @@ main{
 .btn-auth{
     display: block;
     padding: 10px 20px;
-    border-radius: 15px;
-    background-color: rgba(144, 238, 144, 0.333);
+    border-radius: calc(var(--border-radius)*4);
+    background-color: var(--color1);
     border: 1px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(30px);
     color: rgba(255,255,255,0.8);
@@ -213,7 +221,8 @@ fieldset > legend{
     position: fixed;
     width: 100%;
     height: 30px;
-    background-color: #00ff0066;
+    /* background-color: #00ff0066; */
+    background-color: var(--color1);
     backdrop-filter: blur(4px);
     z-index: 40;
     text-align: center;
@@ -221,7 +230,8 @@ fieldset > legend{
     text-transform: capitalize;
 }
 .msg-error{
-    background-color: #ff000066;
+    /* background-color: #ff000066; */
+    background-color: var(--color2);
 }
 /*---------------------------------------Chats section----------------------------------------------*/
 #chats {
@@ -230,10 +240,11 @@ fieldset > legend{
     grid-template-rows: 8% 92vh; /* La primera fila ocupa el 8% del alto, la segunda el 92% (altura de la pantalla menos la primera fila). */
     width: 100vw; /* Ocupa todo el ancho de la pantalla. */
     height: 100vh; /* Ocupa todo el alto de la pantalla. */
+    background-color: var(--background-color);
   }
   
   .chats {
-    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
+    /* background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%); */
     height: 100vh;
   }
   
@@ -263,7 +274,7 @@ fieldset > legend{
     color: white;
     text-decoration: none;
     padding: .6em;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     transition: all .3s;
     text-transform: capitalize;
   }
@@ -290,17 +301,14 @@ fieldset > legend{
     text-decoration: none;
     background-color: rgba(3, 3, 3, 0.3);
     backdrop-filter: blur(4px);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     transition: all .3s;
 }
 #chats>.chats>ul>.chat>a>img{
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 #chats>.chats>ul>.chat>a:hover{
     background-color: rgba(3, 3, 3, 0.6);
-}
-#chats{
-    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
 }
 #chats>.principal-article form[class="buscador"]{
     display: flex;
@@ -317,7 +325,7 @@ form[class="buscador"] label{
 }
 #chats>.principal-article form[class="buscador"] input{
     width: 70%;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     padding: .4em;
     border: none;
     outline: none;
@@ -339,7 +347,7 @@ form[class="buscador"] label{
     color: #0000;
     cursor: pointer;
     transition: all .2s;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 .buscador button[value="reiniciar"]{
     background-image: url('../assets/icons/icons8-reiniciar-50.png');
@@ -358,7 +366,7 @@ form[class="buscador"] label{
     padding: 1em .5em;
 }
 #chats>.principal-article .usuario{
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     width: 230px;
     height: 300px;
     display: flex;
@@ -367,10 +375,10 @@ form[class="buscador"] label{
     align-items: center;
     background-color: rgba(3, 3, 3, 0.3);
     backdrop-filter: blur(4px);
-    color: #f2f2f2;
+    color: var(--texto1);
 }
 #chats>.principal-article .usuario img{
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     border: 1px solid black;
 }
 #chats>.principal-article .usuario div{
@@ -395,10 +403,10 @@ form[class="buscador"] label{
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    color: #f2f2f2;
+    color: var(--texto1);
   }
   .chat-header img{
-    border-radius: 4px;
+    border-radius: var(--border-radius);
   }
   
   .mensajes {
@@ -411,16 +419,16 @@ form[class="buscador"] label{
   
   .mensaje {
     /* Estilos para los mensajes según tus necesidades. */
-    padding: 10px;
+    padding: 20px;
     margin: 5px;
-    background-color: #f2f2f2; /* Cambia el color de fondo según tu preferencia. */
+    background-color: var(--texto1); /* Cambia el color de fondo según tu preferencia. */
     max-width: 40%;
   }
 
   .chat-footer {
     grid-row: 3;
     width: 75vw;
-    color: white;
+    color: var(--texto1);
     padding: 10px;
     max-height: 10vh;
     background-color: rgba(255,255,255,0.06);
@@ -428,35 +436,35 @@ form[class="buscador"] label{
   }
   
   /* Estilos para el formulario y otros elementos dentro del footer según tus necesidades. */
+  .mensaje {
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -moz-border-radius-bottomright: 0;
+    border-radius: calc(var(--border-radius)*3);
+  }
   #mensaje {
     width: 100%;
   }
   
-  
 .mensajePropio{
-    background-color: #29a82f66;
+    /* background-color: #29a82f88; */
+    background-color: var(--color1);
     backdrop-filter: blur(4px);
-
-    -webkit-border-radius: 40px;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius: 40px;
-    -moz-border-radius-bottomright: 0;
-    border-radius: 40px;
     border-bottom-right-radius: 0;
     align-self: flex-end;
+    margin-right: 50px;
 }
 .mensajeDeOtro{
-    background-color: #e27ee666;
+    /* background-color: #e27ee688; */
+    background-color: var(--color2);
     backdrop-filter: blur(4px);
-
-    align-self: flex-start;
-    -webkit-border-radius: 40px;
-    -webkit-border-bottom-left-radius: 0;
-    -moz-border-radius: 40px;
-    -moz-border-radius-bottomleft: 0;
-    border-radius: 40px;
     border-bottom-left-radius: 0;
+    margin-left: 50px;
 }
+.fechaDeEnvio{
+    font-size: .8em;
+}
+
 .chat-footer>form{
     display: flex;
     justify-content: center;
@@ -472,7 +480,7 @@ form[class="buscador"] label{
     height: 100%;
     padding: .2em;
     max-height: 8vh;
-    border-radius: 8px;
+    border-radius: calc(var(--border-radius)*2);
     resize: none;
 }
 .chat-footer>form>div>label{
@@ -492,7 +500,7 @@ form[class="buscador"] label{
     color: #0000;
     cursor: pointer;
     transition: all .3s;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 #flecha:hover, #enviar:hover{
     background-color: rgba(246, 246, 246, 0.444);
@@ -506,7 +514,8 @@ form[class="buscador"] label{
 .profile-container{
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%);
+    /* background-image: linear-gradient(to top, #36a0a0 0%, #330867 100%); */
+    background-color: var(--background-color);
 }
 
 .profile-container > form {
@@ -530,7 +539,7 @@ form[class="buscador"] label{
 .profile-header > h1{
     font-size: 1.5rem;
     text-align: center;
-    color: #f6f6f6;
+    color: var(--texto1);
     font-weight: bold;
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
@@ -545,7 +554,7 @@ form[class="buscador"] label{
     height: 40px;
     line-height: 40px;
     text-align: center;
-    color: white;
+    color: var(--texto1);
     text-decoration: none;
     border-radius: 999px;
     background-color: rgba(255,255,255,0.06);
@@ -565,7 +574,7 @@ form[class="buscador"] label{
 .profile-form > fieldset > img{
     display: block;
     margin: 10px auto;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 
 
@@ -574,8 +583,8 @@ form[class="buscador"] label{
 #Error{
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-    
+    /* background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -591,12 +600,11 @@ form[class="buscador"] label{
     width: 90%;
     max-width: 800px;
     margin: 20px;
-    border-radius: 12px;
+    border-radius: calc(var(--border-radius)*3);
 }
 
 #Error > .error-container > h1{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
+    color: var(--texto1);
     text-shadow: 0px 0px 5px black;
     text-align: center;
     font-size: 1.5rem;

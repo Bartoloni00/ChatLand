@@ -52,7 +52,7 @@ use Bartoloni00\Modelos\Mensaje;
             <?php 
                 $fecha = $mensaje->getTiempoDeEnvio();
             ?>
-            <span><?=date("H:i", strtotime($fecha))?></span><!--extraigo la hora y el minuto de la fecha de envio-->
+            <span class="fechaDeEnvio"><?=date("H:i", strtotime($fecha))?></span><!--extraigo la hora y el minuto de la fecha de envio-->
         </div>
     <?php endforeach;?>
 
